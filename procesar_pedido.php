@@ -5,7 +5,8 @@ Insertar los pedidos en la bd, envia correos de confirmacion y muestra mensajes 
 
 require_once 'database/bd.php';
 require_once 'correo.php';
-
+session_start();
+$carrito = $SESSION["carrito"];
 function insertarPedidos($CodPed, $fecha, $enviado, $peso, $restaurante) {
     $sql = '\INSERT INTO Pedidos (CodPed, fecha, enviado, peso, restaurante) VALUES (?,?,?,?,?)';
     $pdo = conexion();
